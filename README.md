@@ -1,48 +1,57 @@
-# Product Name
+# M5Tab5-Keyboard-Internal-FW
 
 ## Overview
 
-### SKU:xxx
+### SKU: A164
 
-Description of the product
+Internal firmware for the M5Stack Tab5 Keyboard. Tab5 Keyboard is a 70-key physical keyboard expansion module designed for Tab5. It uses an STM32F030C8T6 MCU for keyboard matrix scanning, RGB LED control, and I2C communication with the host.
 
-## Related Link
+The default keyboard application firmware communicates over I2C address `0x6D` and supports Normal, HID, and Character data packet modes. The project also includes an IAP firmware project and protocol/user manual documents.
 
-- [Document & Datasheet](https://docs.m5stack.com/en/unit/product_Link)
+## Repository Contents
 
-## Required Libraries:
+- `code/Keyboard_APP`: STM32CubeIDE application firmware project for the keyboard runtime.
+- `code/Keyboard_IAP`: STM32CubeIDE IAP firmware project.
+- `firmware`: Prebuilt firmware image.
+- `protocol`: I2C protocol documents and user manuals in English and Chinese.
 
-- [Adafruit_BMP280_Library](https://github.com/adafruit/Required_Libraries_Link)
+## Hardware
 
-## License
-
-- [Product Name- MIT](LICENSE)
-
-## Remaining steps(Editorial Staff Look,After following the steps, remember to delete all the content below)
-
-1. Change [clang format check path](./.github/workflows/clang-format-check.yml#L42-L47).
-2. Add License content to [LICENSE](/LICENSE).
-3. Change link on line 78 of [bug-report.yml](./.github/ISSUE_TEMPLATE/bug-report.yml#L79).
-
-```cpp
-Example
-# M5Unit-ENV
-
-## Overview
-
-### SKU:U001 & U001-B & U001-C
-
-Contains M5Stack-**UNIT ENV** series related case programs.ENV is an environmental sensor with integrated SHT30 and QMP6988 internally to detect temperature, humidity, and atmospheric pressure data.
+- MCU: STM32F030C8T6
+- Keys: 70-key keyboard, 14 x 5 matrix
+- Interface: I2C with interrupt pin
+- Default application I2C address: `0x6D`
+- RGB LED: 2 x WS2812E-1313
 
 ## Related Link
 
-- [Document & Datasheet](https://docs.m5stack.com/en/unit/envIII)
+- [Document & Datasheet](https://docs.m5stack.com/en/tab5/Tab5_Keyboard)
+- [M5Tab5-Keyboard-UserDemo](https://github.com/m5stack/M5Tab5-Keyboard-UserDemo)
 
-## Required Libraries:
+## Development
 
-- [Adafruit_BMP280_Library](https://github.com/adafruit/Adafruit_BMP280_Library)
+Open the firmware projects with STM32CubeIDE:
+
+- `code/Keyboard_APP/Keyboard_APP.ioc`
+- `code/Keyboard_IAP/Keyboard_IAP.ioc`
+
+The projects target `STM32F030C8Tx` and use STM32Cube FW_F0.
+
+## Firmware
+
+Prebuilt firmware is available in:
+
+- `firmware/A164-Tab5-Keyboard-STM32F030C8-FW-TAO-V1-39aabc6a-20260506_0x8000000.hex`
+
+## Protocol
+
+The protocol and user manual files are available in:
+
+- `protocol/Tab5_Keyboard-I2C-Protocol-EN-V1.0.pdf`
+- `protocol/Tab5_Keyboard-I2C-Protocol-CN-V1.0.pdf`
+- `protocol/Tab5_Keyboard_User_Manual_EN.pdf`
+- `protocol/Tab5_Keyboard_User_Manual_CN.pdf`
 
 ## License
 
-- [M5Unit-ENV - MIT](LICENSE)
-```
+- [M5Tab5-Keyboard-Internal-FW - MIT](LICENSE)
